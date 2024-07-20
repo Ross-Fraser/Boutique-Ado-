@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
-from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -109,8 +108,8 @@ def checkout(request):
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=STRIPE_CURRENCY,
+            amount = stripe_total,
+            currency = STRIPE_CURRENCY,
         )
 
         # Attempt to prefill the form with any info the user maintains in their profile
