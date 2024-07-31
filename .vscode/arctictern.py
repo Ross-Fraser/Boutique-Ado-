@@ -7,7 +7,6 @@ import json
 import os
 import requests
 import shutil
-import subprocess
 import sys
 from os.path import exists
 
@@ -17,8 +16,10 @@ COLOURS = {"red": "\033[31m",
            "reset": "\033[0m",
            "bold": "\033[1m"}
 
-BASE_URL = "https://raw.githubusercontent.com/Code-Institute-Org/gitpod-full-template/main/"
+BASE_URL = "https://raw.githubusercontent.com/"
+"Code-Institute-Org/gitpod-full-template/main/"
 CURRENT_VERSION = 1.0
+THIS_VERSION = 1.0
 THIS_VERSION = 1.0
 
 
@@ -45,10 +46,10 @@ UPGRADE_FILE_LIST = [{"filename": ".vscode/settings.json",
                       },
                      {"filename": ".vscode/make_url.py",
                       "url": ".vscode/make_url.py"
-                     },
+                      },
                      {"filename": ".vscode/arctictern.py",
                       "url": ".vscode/arctictern.py"
-                     }]
+                      }]
 
 FINAL_LINES = "\nexport POST_UPGRADE_RUN=1\nsource ~/.bashrc\n"
 
